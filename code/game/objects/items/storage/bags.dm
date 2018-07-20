@@ -45,10 +45,11 @@
 /obj/item/storage/bag/trash/ComponentInitialize()
 	. = ..()
 	GET_COMPONENT(STR, /datum/component/storage)
-	STR.can_hold = typecacheof(list(/obj/item/trash, /obj/item/shard))
-	STR.max_w_class = WEIGHT_CLASS_SMALL
+	STR.can_hold = typecacheof(list(/obj/item/trash, /obj/item/shard, /obj/item/stack/teeth/, /obj/item/bodypart/, /obj/item/organ/))
+	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.max_combined_w_class = 30
 	STR.max_items = 30
+	STR.cant_hold = typecacheof(list(/obj/item/organ/cyberimp/, /obj/item/organ/brain/))
 
 /obj/item/storage/bag/trash/suicide_act(mob/user)
 	user.visible_message("<span class='suicide'>[user] puts [src] over [user.p_their()] head and starts chomping at the insides! Disgusting!</span>")
